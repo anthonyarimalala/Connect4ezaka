@@ -1,0 +1,47 @@
+public boolean isWinner(Color color, JPanel[][] jpan){
+    //check for 4 across
+    for(int row = 0; row<jpan.length; row++){
+        for (int col = 0;col < jpan[0].length - 3;col++){
+            if (jpan[row][col].getBackground() == color   && 
+                jpan[row][col+1].getBackground() == color &&
+                jpan[row][col+2].getBackground() == color &&
+                jpan[row][col+3].getBackground() == color){
+                return true;
+            }
+        }			
+    }
+    //check for 4 up and down
+    for(int row = 0; row < jpan.length - 3; row++){
+        for(int col = 0; col < jpan[0].length; col++){
+            if (jpan[row][col].getBackground() == color   && 
+                jpan[row+1][col].getBackground() == color &&
+                jpan[row+2][col].getBackground() == color &&
+                jpan[row+3][col].getBackground() == color){
+                return true;
+            }
+        }
+    }
+    //check upward diagonal
+    for(int row = 3; row < jpan.length; row++){
+        for(int col = 0; col < jpan[0].length - 3; col++){
+            if (jpan[row][col].getBackground() == color   && 
+                jpan[row-1][col+1].getBackground() == color &&
+                jpan[row-2][col+2].getBackground() == color &&
+                jpan[row-3][col+3].getBackground() == color){
+                return true;
+            }
+        }
+    }
+    //check downward diagonal
+    for(int row = 0; row < jpan.length - 3; row++){
+        for(int col = 0; col < jpan[0].length - 3; col++){
+            if (jpan[row][col].getBackground() == color   && 
+                jpan[row+1][col+1].getBackground() == color &&
+                jpan[row+2][col+2].getBackground() == color &&
+                jpan[row+3][col+3].getBackground() == color){
+                return true;
+            }
+        }
+    }
+    return false;
+}
